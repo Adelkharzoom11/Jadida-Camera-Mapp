@@ -77,7 +77,7 @@ colorCircles.forEach(circle => {
 });
 
 function bindMarkerPopup(marker, currentColor) {
-  const oppositeColor = currentColor === 'red' ? 'green' : 'red';
+  const oppositeColor = currentColor === 'red' ? 'rgb(14, 249, 14)' : 'red';
   marker.bindPopup(`
     <button onclick="changeColor(${marker._id}, '${currentColor}')" style="margin-bottom:5px;">
       تغيير إلى اللون ${oppositeColor === 'red' ? 'أحمر' : 'أخضر'}
@@ -89,7 +89,7 @@ function bindMarkerPopup(marker, currentColor) {
 }
 
 window.changeColor = (id, currentColor) => {
-  const newColor = currentColor === 'red' ? 'green' : 'red';
+  const newColor = currentColor === 'red' ? 'rgb(14, 249, 14)' : 'red';
   fetch(API_URL, {
     method: 'PUT',
     body: JSON.stringify({ id, Color: newColor }),
