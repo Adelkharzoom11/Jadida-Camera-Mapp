@@ -1,26 +1,29 @@
+
 const API_URL = '/api/locations';
 
 const map = L.map('map', {
   center: [33.656106, 35.977878],
-  zoom: 15,
+  zoom: 18,
   zoomControl: true
 });
+map.setMaxBounds([
+  [33.65, 35.97],
+  [33.66, 35.99]
+]);
 
 L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
   attribution: 'Tiles © Esri'
 }).addTo(map);
 
-const redIcon = new L.Icon({
-  iconUrl: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png',
-  iconSize: [32, 32],
-  iconAnchor: [16, 32]
-});
-
-const greenIcon = new L.Icon({
-  iconUrl: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png',
-  iconSize: [32, 32],
-  iconAnchor: [16, 32]
-});
+function createCircleMarker(latlng, color) {
+  return L.circleMarker(latlng, {
+    radius: 3,
+    color: color === 'green' ? 'rgb(14, 249, 14)' : 'red',      // لون إطار الدائرة
+    fillColor: color === 'green' ? 'rgb(14, 249, 14)' : 'red',  // لون تعبئة الدائرة
+    fillOpacity: 1,
+    weight: 1
+  }).addTo(map);
+}
 
 let selectedLatLng = null;
 const colorPicker = document.getElementById('colorPicker');
@@ -32,8 +35,7 @@ function loadLocations() {
     .then(res => res.json())
     .then(data => {
       data.forEach(loc => {
-        const icon = loc.Color === 'green' ? greenIcon : redIcon;
-        const marker = L.marker([loc.Latitude, loc.Longitude], { icon }).addTo(map);
+        const marker = createCircleMarker([loc.Latitude, loc.Longitude], loc.Color);
         marker._id = loc.id;
         bindMarkerPopup(marker, loc.Color);
         markers[loc.id] = marker;
@@ -64,8 +66,7 @@ colorCircles.forEach(circle => {
     .then(res => res.json())
     .then(data => {
       if (data.id) {
-        const icon = color === 'green' ? greenIcon : redIcon;
-        const marker = L.marker([selectedLatLng.lat, selectedLatLng.lng], { icon }).addTo(map);
+        const marker = createCircleMarker([selectedLatLng.lat, selectedLatLng.lng], color);
         marker._id = data.id;
         bindMarkerPopup(marker, color);
         markers[data.id] = marker;
@@ -100,8 +101,10 @@ window.changeColor = (id, currentColor) => {
   })
   .then(() => {
     if (markers[id]) {
-      const icon = newColor === 'green' ? greenIcon : redIcon;
-      markers[id].setIcon(icon);
+      markers[id].setStyle({
+        color: newColor,
+        fillColor: newColor
+      });
       markers[id].closePopup();
       bindMarkerPopup(markers[id], newColor);
     }
