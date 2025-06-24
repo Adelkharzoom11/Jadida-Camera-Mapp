@@ -6,10 +6,7 @@ const map = L.map('map', {
   zoom: 18,
   zoomControl: true
 });
-map.setMaxBounds([
-  [33.65, 35.97],
-  [33.66, 35.99]
-]);
+
 
 L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
   attribution: 'Tiles © Esri'
