@@ -2,15 +2,24 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <title>خريطة معبر المصنع</title>
+  <title>خريطة معبر جديدة يابوس</title>
   <link rel="icon" href="Emblem_of_Syria.svg.png" type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<div id="map"></div>
+  <div id="statsBar">
+    <div class="color-stat red">
+      <div class="color-dot red"></div>
+      <span id="redCount">0</span>
+    </div>
+    <div class="color-stat green">
+      <div class="color-dot green"></div>
+      <span id="greenCount">0</span>
+    </div>
+  </div>
+  <div id="map"></div>
 
 <div class="color-picker" id="colorPicker">
   <textarea id="noteInput" placeholder="أدخل ملاحظة للنقطة..." rows="2"></textarea>
@@ -18,10 +27,16 @@
     <div class="color-circle red" data-color="red" title="أحمر"></div>
     <div class="color-circle green" data-color="green" title="أخضر"></div>
   </div>
+<div style="display: flex; justify-content: space-between; gap: 10px; margin-top: 10px;">
+  <button id="savePoint" class="flex-grow">حفظ النقطة</button>
+  <button id="cancelPoint" class="flex-shrink">إلغاء</button>
 </div>
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="script.js"></script>
+</div>
+
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
 
 </body>
 </html>

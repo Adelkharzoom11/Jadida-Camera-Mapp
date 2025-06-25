@@ -118,6 +118,93 @@ html, body, #map {
 
 
 
+#statsBar {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  background: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1001;
+  font-size: 16px;
+  align-items: flex-start;
+}
+
+.color-stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+}
+
+.color-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+
+.color-dot.red {
+  background: red;
+}
+
+.color-dot.green {
+  background: rgb(14, 249, 14);
+}
+
+
+.color-picker button#cancelPoint {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.color-picker button#cancelPoint:hover {
+  background-color: #5a6268;
+}
+
+
+#savePoint.flex-grow {
+  flex: 3;
+}
+
+#cancelPoint.flex-shrink {
+  flex: 1;
+}
+
+#colorPicker button {
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+#savePoint.flex-grow {
+  background-color: #28a745;
+  color: white;
+}
+
+#cancelPoint.flex-shrink {
+  background-color: #6c757d;
+  color: white;
+}
+
+
+
+
+
+
 
 
 
