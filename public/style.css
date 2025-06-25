@@ -3,6 +3,194 @@ html, body, #map {
   padding: 0;
   width: 100%;
   height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  direction: rtl;
+}
+
+#map {
+  height: 100vh;
+  width: 100%;
+}
+
+.color-picker {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: none;
+  flex-direction: column;
+  z-index: 1000;
+  width: 280px;
+}
+
+.color-picker textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  resize: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.color-picker .color-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s, transform 0.2s;
+}
+
+.color-picker .color-circle.red {
+  background: red;
+}
+
+.color-picker .color-circle.green {
+  background: rgb(14, 249, 14);
+}
+
+.color-picker .color-circle:hover,
+.color-picker .color-circle.selected {
+  border-color: black;
+  transform: scale(1.1);
+}
+
+.color-picker button#savePoint {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.color-picker button#savePoint:hover {
+  background-color: #218838;
+}
+
+/* Popup داخل الخريطة */
+.leaflet-popup-content {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.leaflet-popup-content button {
+  font-size: 13px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  text-align: center;
+}
+
+.leaflet-popup-content button:hover {
+  opacity: 0.85;
+}
+
+/* زر تغيير اللون */
+.leaflet-popup-content button:nth-child(2) {
+  background-color: #ffc107;
+  border: none;
+  color: #000;
+}
+
+/* زر الحذف */
+.leaflet-popup-content button:nth-child(4) {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+}
+
+.leaflet-popup-content p {
+  margin: 0 0 8px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* html, body, #map {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: sans-serif;
+}
+
+.color-picker {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.color-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.color-circle.red {
+  background: red;
+}
+
+.color-circle.green {
+  background: green;
+}
+
+.color-circle:hover,
+.color-circle.selected {
+  border-color: black;
+}
+
+#map {
+  height: 100vh; 
+  width: 100%;
+}
+
+#noteInput {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  resize: none;
+  font-family: sans-serif;
+}
+
+
+
+html, body, #map {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
   font-family: sans-serif;
 }
 
@@ -46,4 +234,4 @@ html, body, #map {
 #map {
   height: 100vh; 
   width: 100%;
-}
+} */
