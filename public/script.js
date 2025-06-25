@@ -12,7 +12,7 @@ L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/World_Imager
 
 function createCircleMarker(latlng, color) {
   return L.circleMarker(latlng, {
-    radius: 5,
+    radius: 3,
     color: color === 'green' ? 'rgb(14, 249, 14)' : 'red',
     fillColor: color === 'green' ? 'rgb(14, 249, 14)' : 'red',
     fillOpacity: 1,
